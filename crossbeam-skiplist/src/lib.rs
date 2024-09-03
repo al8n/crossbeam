@@ -1,3 +1,7 @@
+//! This is a fork of the [`crossbeam-skiplist`] crate, which is a concurrent skip list implementation to allow lookups can be
+//! customized. The PR https://github.com/crossbeam-rs/crossbeam/pull/1132 has not been merged yet. Published on crates.io
+//! for temporary solution.
+//!
 //! Concurrent maps and sets based on [skip lists].
 //!
 //! This crate provides the types [`SkipMap`] and [`SkipSet`].
@@ -248,6 +252,8 @@ pub mod base;
 #[cfg(all(feature = "alloc", target_has_atomic = "ptr"))]
 #[doc(inline)]
 pub use crate::base::SkipList;
+
+pub use equivalent::{Comparable, Equivalent};
 
 #[cfg(feature = "std")]
 pub mod map;
