@@ -17,14 +17,6 @@ cargo clean
 RUSTFLAGS="${RUSTFLAGS:-} -Z sanitizer=address --cfg crossbeam_sanitize" \
     cargo test -Z build-std --all --all-features --release --target x86_64-unknown-linux-gnu --tests --exclude benchmarks -- --test-threads=1
 
-RUSTFLAGS="${RUSTFLAGS:-} -Z sanitizer=address --cfg crossbeam_sanitize" \
-    cargo run -Z build-std \
-    --all-features \
-    --release \
-    --target x86_64-unknown-linux-gnu \
-    --example sanitize \
-    --manifest-path crossbeam-epoch/Cargo.toml
-
 # Run memory sanitizer
 cargo clean
 RUSTFLAGS="${RUSTFLAGS:-} -Z sanitizer=memory --cfg crossbeam_sanitize" \
